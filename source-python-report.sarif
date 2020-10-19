@@ -1,0 +1,86 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Python Source Analyzer",
+          "version": "1.0.0-scan",
+          "fullName": "Python Source Analyzer"
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "@ShiftLeft/sast-scan"
+          }
+        },
+        "invocation": {
+          "arguments": [
+            "-r",
+            "-a",
+            "vuln",
+            "-n",
+            "3",
+            "-s",
+            "B101,B102,B105,B307,B308,B310,B322,B404,B601,B602,B603,B604,B605,B701,B702,B703",
+            "-iii",
+            "-ll",
+            "-o",
+            "/app/reports/source-python-report.json",
+            "-f",
+            "json",
+            "-x",
+            ".git,.svn,.mvn,.idea,.github,.hg,dist,obj,backup,docs,tests,test,test-packages,tmp,report,reports,node_modules,.terraform,.serverless,venv,.virtualenv,vendor,bower_components,.vscode,e2e,.pytest_cache,__pycache__,.storybook,.venv,.tox,examples,tutorials,samples,db_migrations,unittests,unittests_legacy,stubs",
+            "/app"
+          ],
+          "executionSuccessful": true,
+          "commandLine": "-r -a vuln -n 3 -s B101,B102,B105,B307,B308,B310,B322,B404,B601,B602,B603,B604,B605,B701,B702,B703 -iii -ll -o /app/reports/source-python-report.json -f json -x .git,.svn,.mvn,.idea,.github,.hg,dist,obj,backup,docs,tests,test,test-packages,tmp,report,reports,node_modules,.terraform,.serverless,venv,.virtualenv,vendor,bower_components,.vscode,e2e,.pytest_cache,__pycache__,.storybook,.venv,.tox,examples,tutorials,samples,db_migrations,unittests,unittests_legacy,stubs /app",
+          "endTimeUtc": "2020-10-19T08:20:52Z",
+          "workingDirectory": {
+            "uri": "file:///home/ec2-user/vulnerableapps/kubernetes-goat"
+          }
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2020-10-19T08:20:52Z",
+          "workingDirectory": {
+            "uri": "file:///home/ec2-user/vulnerableapps/kubernetes-goat"
+          }
+        }
+      ],
+      "properties": {
+        "metrics": {
+          "total": 0,
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "results": [],
+      "automationDetails": {
+        "description": {
+          "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
+        },
+        "guid": "2e21fa28-c807-4817-9eaa-58fe3ca83a44"
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "master",
+          "repositoryUri": "https://github.com/madhuakula/kubernetes-goat",
+          "revisionId": "e4cb8b0e125986b99b3d3c04cbf477b899f189af"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "inlineExternalProperties": [
+    {
+      "guid": "2e21fa28-c807-4817-9eaa-58fe3ca83a44",
+      "runGuid": "b7bf4b82-abb7-4369-844e-7f8638de60d0"
+    }
+  ]
+}

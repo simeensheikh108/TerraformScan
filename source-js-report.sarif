@@ -1,0 +1,139 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "JavaScript Source Analyzer",
+          "rules": [
+            {
+              "id": "a1-injection",
+              "help": {
+                "text": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability.",
+                "markdown": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+              },
+              "name": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+              "properties": {
+                "tags": [
+                  "Scan"
+                ],
+                "precision": "high"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+              },
+              "helpUri": "https://slscan.io?q=a1-injection",
+              "shortDescription": {
+                "text": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+              }
+            }
+          ],
+          "version": "1.0.0-scan",
+          "fullName": "JavaScript Source Analyzer"
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "@ShiftLeft/sast-scan"
+          }
+        },
+        "invocation": {
+          "arguments": [
+            "--json",
+            "--output",
+            "/app/reports/source-js-report.json",
+            "/app/infrastructure/health-check/code/server.js",
+            "/app/infrastructure/health-check/code/config/server.js",
+            "/app/infrastructure/internal-api/code/server.js"
+          ],
+          "executionSuccessful": true,
+          "commandLine": "--json --output /app/reports/source-js-report.json /app/infrastructure/health-check/code/server.js /app/infrastructure/health-check/code/config/server.js /app/infrastructure/internal-api/code/server.js",
+          "endTimeUtc": "2020-10-19T08:21:09Z",
+          "workingDirectory": {
+            "uri": "file:///home/ec2-user/vulnerableapps/kubernetes-goat"
+          }
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2020-10-19T08:21:09Z",
+          "workingDirectory": {
+            "uri": "file:///home/ec2-user/vulnerableapps/kubernetes-goat"
+          }
+        }
+      ],
+      "properties": {
+        "metrics": {
+          "total": 1,
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "markdown": "",
+            "text": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    var endpoint = req.body.endpoint, method = req.body.method || 'GET', headers = req.body.headers || {};\n"
+                  },
+                  "startLine": 20
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/kubernetes-goat/infrastructure/internal-api/code/server.js"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "app.post('/', function (req, res) {\n    var endpoint = req.body.endpoint, method = req.body.method || 'GET', headers = req.body.headers || {};\n"
+                  },
+                  "endLine": 20,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "MEDIUM"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "a1-injection",
+          "ruleIndex": 0
+        }
+      ],
+      "automationDetails": {
+        "description": {
+          "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
+        },
+        "guid": "aa3eaae7-0d44-4808-ba2a-ca7885c8f354"
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "master",
+          "repositoryUri": "https://github.com/madhuakula/kubernetes-goat",
+          "revisionId": "e4cb8b0e125986b99b3d3c04cbf477b899f189af"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "inlineExternalProperties": [
+    {
+      "guid": "aa3eaae7-0d44-4808-ba2a-ca7885c8f354",
+      "runGuid": "b7bf4b82-abb7-4369-844e-7f8638de60d0"
+    }
+  ]
+}

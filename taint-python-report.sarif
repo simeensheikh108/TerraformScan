@@ -6,12 +6,12 @@
           "name": "Python Security Analysis",
           "rules": [
             {
-              "id": "taint-open-redirect",
+              "id": "taint-sqli",
               "help": {
-                "text": "A web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks.\nAn http parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance.",
-                "markdown": "A web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks.\nAn http parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance."
+                "text": "The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.\nWithout sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including execution of system commands. SQL injection has become a common issue with database-driven web sites. The flaw is easily detected, and easily exploited, and as such, any site or software package with even a minimal user base is likely to be subject to an attempted attack of this kind. This flaw depends on the fact that SQL makes no real distinction between the control and data planes.",
+                "markdown": "The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.\nWithout sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including execution of system commands. SQL injection has become a common issue with database-driven web sites. The flaw is easily detected, and easily exploited, and as such, any site or software package with even a minimal user base is likely to be subject to an attempted attack of this kind. This flaw depends on the fact that SQL makes no real distinction between the control and data planes."
               },
-              "name": "Open Redirect",
+              "name": "SQL Injection",
               "properties": {
                 "tags": [
                   "Scan"
@@ -22,15 +22,15 @@
                 "level": "error"
               },
               "fullDescription": {
-                "text": "A web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a Redirect. This simplifies phishing attacks."
+                "text": "The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component."
               },
-              "helpUri": "https://cwe.mitre.org/data/definitions/601.html",
+              "helpUri": "https://cwe.mitre.org/data/definitions/89.html",
               "shortDescription": {
-                "text": "URL Redirection to Untrusted Site ('Open Redirect')."
+                "text": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')."
               }
             },
             {
-              "id": "django-misconfiguration-static",
+              "id": "flask-misconfiguration-static",
               "help": {
                 "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data.",
                 "markdown": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data."
@@ -54,31 +54,7 @@
               }
             },
             {
-              "id": "django-misconfiguration-insecure",
-              "help": {
-                "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data.",
-                "markdown": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data."
-              },
-              "name": "Security Misconfiguration",
-              "properties": {
-                "tags": [
-                  "Scan"
-                ],
-                "precision": "high"
-              },
-              "defaultConfiguration": {
-                "level": "note"
-              },
-              "fullDescription": {
-                "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors."
-              },
-              "helpUri": "https://cwe.mitre.org/data/definitions/732.html",
-              "shortDescription": {
-                "text": "Incorrect Permission Assignment for Critical Resource."
-              }
-            },
-            {
-              "id": "django-misconfiguration-recommended",
+              "id": "flask-misconfiguration-recommended",
               "help": {
                 "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data.",
                 "markdown": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data."
@@ -92,6 +68,30 @@
               },
               "defaultConfiguration": {
                 "level": "warning"
+              },
+              "fullDescription": {
+                "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors."
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/732.html",
+              "shortDescription": {
+                "text": "Incorrect Permission Assignment for Critical Resource."
+              }
+            },
+            {
+              "id": "flask-misconfiguration-controls",
+              "help": {
+                "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data.",
+                "markdown": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.\nWhen a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution or sensitive user data."
+              },
+              "name": "Missing Security Controls",
+              "properties": {
+                "tags": [
+                  "Scan"
+                ],
+                "precision": "high"
+              },
+              "defaultConfiguration": {
+                "level": "note"
               },
               "fullDescription": {
                 "text": "The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors."
@@ -122,35 +122,35 @@
           ],
           "executionSuccessful": true,
           "commandLine": "-j -a e -o /app/reports/taint-python-report.json",
-          "endTimeUtc": "2020-10-19T08:36:15Z",
+          "endTimeUtc": "2020-11-03T07:57:02Z",
           "workingDirectory": {
-            "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat"
+            "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
           }
         }
       },
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2020-10-19T08:36:15Z",
+          "endTimeUtc": "2020-11-03T07:57:02Z",
           "workingDirectory": {
-            "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat"
+            "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
           }
         }
       ],
       "properties": {
         "metrics": {
-          "total": 13,
-          "critical": 0,
-          "high": 1,
-          "medium": 10,
-          "low": 2
+          "total": 35,
+          "critical": 19,
+          "high": 0,
+          "medium": 8,
+          "low": 8
         }
       },
       "results": [
         {
           "message": {
             "markdown": "",
-            "text": "Data from `friend_pk in views.py:68` may be used in an open redirect via `views.py:89`."
+            "text": "SQL injection with user data from `username in libmfa.py:5` used to construct the query at `libmfa.py:12`."
           },
           "level": "error",
           "locations": [
@@ -158,36 +158,702 @@
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "def conversation(request, friend_pk):\n"
+                    "text": "def mfa_is_enabled(username):\n"
                   },
-                  "startLine": 68
+                  "startLine": 5
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/notes/views.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libmfa.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "@login_required\ndef conversation(request, friend_pk):\n    friend = get_object_or_404(User, pk=friend_pk)\n    friend_name = friend.username\n"
+                    "text": "\ndef mfa_is_enabled(username):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
                   },
-                  "endLine": 70,
-                  "startLine": 67
+                  "endLine": 7,
+                  "startLine": 4
                 }
               }
             }
           ],
           "properties": {
             "issue_confidence": "HIGH",
-            "issue_severity": "HIGH"
+            "issue_severity": "CRITICAL"
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "taint-open-redirect",
+          "ruleId": "taint-sqli",
           "ruleIndex": 0
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `et3a****`."
+            "text": "SQL injection with user data from `username in libmfa.py:20` used to construct the query at `libmfa.py:27`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_disable(username):\n"
+                  },
+                  "startLine": 20
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_disable(username):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
+                  },
+                  "endLine": 22,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:33` used to construct the query at `libmfa.py:43`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_enable(username):\n"
+                  },
+                  "startLine": 33
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_enable(username):\n\n    #secret=pyotp.random_base32()\n"
+                  },
+                  "endLine": 35,
+                  "startLine": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:49` used to construct the query at `libmfa.py:59`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_get_secret(username):\n"
+                  },
+                  "startLine": 49
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_get_secret(username):\n\n    #secret=pyotp.random_base32()\n"
+                  },
+                  "endLine": 51,
+                  "startLine": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:67` used to construct the query at `libmfa.py:78`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_reset_secret(username):\n"
+                  },
+                  "startLine": 67
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_reset_secret(username):\n\n    secret=pyotp.random_base32()\n"
+                  },
+                  "endLine": 69,
+                  "startLine": 66
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:87` used to construct the query at `libmfa.py:59`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_validate(username, otp):\n"
+                  },
+                  "startLine": 87
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_validate(username, otp):\n\n    secret = mfa_get_secret(username)\n"
+                  },
+                  "endLine": 89,
+                  "startLine": 86
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libposts.py:7` used to construct the query at `libposts.py:14`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def get_posts(username):\n"
+                  },
+                  "startLine": 7
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libposts.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef get_posts(username):\n\n    conn = sqlite3.connect('db_posts.sqlite')\n"
+                  },
+                  "endLine": 9,
+                  "startLine": 6
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `text in libposts.py:21` used to construct the query at `libposts.py:28`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def post(username, text):\n"
+                  },
+                  "startLine": 21
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libposts.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef post(username, text):\n\n    conn = sqlite3.connect('db_posts.sqlite')\n"
+                  },
+                  "endLine": 23,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libuser.py:15` used to construct the query at `libuser.py:22`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def login(username, password, **kwargs):\n"
+                  },
+                  "startLine": 15
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libuser.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef login(username, password, **kwargs):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
+                  },
+                  "endLine": 17,
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libuser.py:55` used to construct the query at `libuser.py:61`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def user_create(username, password=None):\n"
+                  },
+                  "startLine": 55
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/libuser.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef user_create(username, password=None):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
+                  },
+                  "endLine": 57,
+                  "startLine": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:5` used to construct the query at `libmfa.py:12`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_is_enabled(username):\n"
+                  },
+                  "startLine": 5
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_is_enabled(username):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
+                  },
+                  "endLine": 7,
+                  "startLine": 4
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:20` used to construct the query at `libmfa.py:27`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_disable(username):\n"
+                  },
+                  "startLine": 20
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_disable(username):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
+                  },
+                  "endLine": 22,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:33` used to construct the query at `libmfa.py:43`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_enable(username):\n"
+                  },
+                  "startLine": 33
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_enable(username):\n\n    #secret=pyotp.random_base32()\n"
+                  },
+                  "endLine": 35,
+                  "startLine": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:49` used to construct the query at `libmfa.py:59`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_get_secret(username):\n"
+                  },
+                  "startLine": 49
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_get_secret(username):\n\n    #secret=pyotp.random_base32()\n"
+                  },
+                  "endLine": 51,
+                  "startLine": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:67` used to construct the query at `libmfa.py:78`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_reset_secret(username):\n"
+                  },
+                  "startLine": 67
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_reset_secret(username):\n\n    secret=pyotp.random_base32()\n"
+                  },
+                  "endLine": 69,
+                  "startLine": 66
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libmfa.py:87` used to construct the query at `libmfa.py:59`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def mfa_validate(username, otp):\n"
+                  },
+                  "startLine": 87
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libmfa.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef mfa_validate(username, otp):\n\n    secret = mfa_get_secret(username)\n"
+                  },
+                  "endLine": 89,
+                  "startLine": 86
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `username in libposts.py:7` used to construct the query at `libposts.py:14`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def get_posts(username):\n"
+                  },
+                  "startLine": 7
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libposts.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef get_posts(username):\n\n    conn = sqlite3.connect('db_posts.sqlite')\n"
+                  },
+                  "endLine": 9,
+                  "startLine": 6
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `text in libposts.py:21` used to construct the query at `libposts.py:28`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def post(username, text):\n"
+                  },
+                  "startLine": 21
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libposts.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef post(username, text):\n\n    conn = sqlite3.connect('db_posts.sqlite')\n"
+                  },
+                  "endLine": 23,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "SQL injection with user data from `password in libuser.py:20` used to construct the query at `libuser.py:25`."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "def create(username, password):\n"
+                  },
+                  "startLine": 20
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/libuser.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\ndef create(username, password):\n\n    conn = sqlite3.connect('db_users.sqlite')\n"
+                  },
+                  "endLine": 22,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "CRITICAL"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "taint-sqli",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`."
           },
           "level": "note",
           "locations": [
@@ -195,19 +861,19 @@
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "SECRET_KEY = 'et3a+y)7vy(6pkf*3)a^xs4lzln8n+&1-u7(7c#sh=rg82gfoe'\n"
+                    "text": "app.config['SECRET_KEY'] = 'aaaaaaa'\n"
                   },
-                  "startLine": 24
+                  "startLine": 13
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy-ssl.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'et3a+y)7vy(6pkf*3)a^xs4lzln8n+&1-u7(7c#sh=rg82gfoe'\n\n# SECURITY WARNING: don't run with debug turned on in production!\n"
+                    "text": "app = Flask('vulpy')\napp.config['SECRET_KEY'] = 'aaaaaaa'\n\napp.register_blueprint(mod_hello, url_prefix='/hello')\n"
                   },
-                  "endLine": 26,
-                  "startLine": 23
+                  "endLine": 15,
+                  "startLine": 12
                 }
               }
             }
@@ -218,13 +884,85 @@
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-static",
+          "ruleId": "flask-misconfiguration-static",
           "ruleIndex": 1
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `DEBUG` set to a value `False` meant for development use."
+            "text": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy-ssl.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n\nfrom flask import Flask, g, redirect, request\n\n"
+                  },
+                  "endLine": 4,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "MEDIUM"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy-ssl.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n\nfrom flask import Flask, g, redirect, request\n\n"
+                  },
+                  "endLine": 4,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "MEDIUM"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps."
           },
           "level": "note",
           "locations": [
@@ -232,19 +970,19 @@
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "DEBUG = False\n"
+                    "text": "#!/usr/bin/env python3\n"
                   },
-                  "startLine": 27
+                  "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy-ssl.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\n\nALLOWED_HOSTS = [\n"
+                    "text": "#!/usr/bin/env python3\n\nfrom flask import Flask, g, redirect, request\n\n"
                   },
-                  "endLine": 29,
-                  "startLine": 26
+                  "endLine": 4,
+                  "startLine": 1
                 }
               }
             }
@@ -255,29 +993,102 @@
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-insecure",
+          "ruleId": "flask-misconfiguration-controls",
+          "ruleIndex": 3
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `123a****`."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "app.config['SECRET_KEY'] = '123aa8a93bdde342c871564a62282af857bda14b3359fde95d0c5e4b321610c1'\n"
+                  },
+                  "startLine": 17
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "app = Flask('vulpy')\napp.config['SECRET_KEY'] = '123aa8a93bdde342c871564a62282af857bda14b3359fde95d0c5e4b321610c1'\n\napp.register_blueprint(mod_hello, url_prefix='/hello')\n"
+                  },
+                  "endLine": 19,
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-static",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n\nfrom pathlib import Path\n\n"
+                  },
+                  "endLine": 4,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "MEDIUM"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-recommended",
           "ruleIndex": 2
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `CSRF_COOKIE_DOMAIN` not set to the recommended value `domain name` for production use."
+            "text": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use."
           },
           "locations": [
             {
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "\"\"\"\n"
+                    "text": "#!/usr/bin/env python3\n"
                   },
                   "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
+                    "text": "#!/usr/bin/env python3\n\nfrom pathlib import Path\n\n"
                   },
                   "endLine": 4,
                   "startLine": 1
@@ -291,29 +1102,103 @@
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/vulpy.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n\nfrom pathlib import Path\n\n"
+                  },
+                  "endLine": 4,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-controls",
           "ruleIndex": 3
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `CSRF_USE_SESSIONS` not set to the recommended value `True` for production use."
+            "text": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "app.config['SECRET_KEY'] = 'aaaaaaa'\n"
+                  },
+                  "startLine": 13
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy-ssl.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "app = Flask('vulpy')\napp.config['SECRET_KEY'] = 'aaaaaaa'\n\napp.register_blueprint(mod_hello, url_prefix='/hello')\n"
+                  },
+                  "endLine": 15,
+                  "startLine": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-static",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use."
           },
           "locations": [
             {
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "\"\"\"\n"
+                    "text": "#!/usr/bin/env python3\n"
                   },
                   "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy-ssl.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
+                    "text": "#!/usr/bin/env python3\n\nfrom flask import Flask, g, redirect, request\n\n"
                   },
                   "endLine": 4,
                   "startLine": 1
@@ -327,65 +1212,139 @@
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy-ssl.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n\nfrom flask import Flask, g, redirect, request\n\n"
+                  },
+                  "endLine": 4,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "MEDIUM"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy-ssl.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "#!/usr/bin/env python3\n\nfrom flask import Flask, g, redirect, request\n\n"
+                  },
+                  "endLine": 4,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "flask-misconfiguration-controls",
           "ruleIndex": 3
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `CSRF_TRUSTED_ORIGINS` not set to the recommended value `domain name` for production use."
+            "text": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`."
           },
+          "level": "note",
           "locations": [
             {
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "\"\"\"\n"
+                    "text": "app.config['SECRET_KEY'] = 'aaaaaaa'\n"
                   },
-                  "startLine": 1
+                  "startLine": 16
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
+                    "text": "app = Flask('vulpy')\napp.config['SECRET_KEY'] = 'aaaaaaa'\n\napp.register_blueprint(mod_hello, url_prefix='/hello')\n"
                   },
-                  "endLine": 4,
-                  "startLine": 1
+                  "endLine": 18,
+                  "startLine": 15
                 }
               }
             }
           ],
           "properties": {
             "issue_confidence": "HIGH",
-            "issue_severity": "MEDIUM"
+            "issue_severity": "LOW"
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
+          "ruleId": "flask-misconfiguration-static",
+          "ruleIndex": 1
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `DATA_UPLOAD_MAX_MEMORY_SIZE` not set to the recommended value `2621440` for production use."
+            "text": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use."
           },
           "locations": [
             {
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "\"\"\"\n"
+                    "text": "#!/usr/bin/env python3\n"
                   },
                   "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
+                    "text": "#!/usr/bin/env python3\n\nfrom pathlib import Path\n\n"
                   },
                   "endLine": 4,
                   "startLine": 1
@@ -399,29 +1358,29 @@
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `DATA_UPLOAD_MAX_NUMBER_FIELDS` not set to the recommended value `100` for production use."
+            "text": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use."
           },
           "locations": [
             {
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "\"\"\"\n"
+                    "text": "#!/usr/bin/env python3\n"
                   },
                   "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
+                    "text": "#!/usr/bin/env python3\n\nfrom pathlib import Path\n\n"
                   },
                   "endLine": 4,
                   "startLine": 1
@@ -435,29 +1394,30 @@
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
+          "ruleId": "flask-misconfiguration-recommended",
+          "ruleIndex": 2
         },
         {
           "message": {
             "markdown": "",
-            "text": "Security Misconfiguration with the config `SECURE_HSTS_INCLUDE_SUBDOMAINS` not set to the recommended value `True` for production use."
+            "text": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps."
           },
+          "level": "note",
           "locations": [
             {
               "physicalLocation": {
                 "region": {
                   "snippet": {
-                    "text": "\"\"\"\n"
+                    "text": "#!/usr/bin/env python3\n"
                   },
                   "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/vulpy.py"
                 },
                 "contextRegion": {
                   "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
+                    "text": "#!/usr/bin/env python3\n\nfrom pathlib import Path\n\n"
                   },
                   "endLine": 4,
                   "startLine": 1
@@ -467,155 +1427,11 @@
           ],
           "properties": {
             "issue_confidence": "HIGH",
-            "issue_severity": "MEDIUM"
+            "issue_severity": "LOW"
           },
           "baselineState": "new",
           "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
-        },
-        {
-          "message": {
-            "markdown": "",
-            "text": "Security Misconfiguration with the config `SECURE_HSTS_PRELOAD` not set to the recommended value `True` for production use."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "region": {
-                  "snippet": {
-                    "text": "\"\"\"\n"
-                  },
-                  "startLine": 1
-                },
-                "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
-                },
-                "contextRegion": {
-                  "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
-                  },
-                  "endLine": 4,
-                  "startLine": 1
-                }
-              }
-            }
-          ],
-          "properties": {
-            "issue_confidence": "HIGH",
-            "issue_severity": "MEDIUM"
-          },
-          "baselineState": "new",
-          "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
-        },
-        {
-          "message": {
-            "markdown": "",
-            "text": "Security Misconfiguration with the config `SECURE_REDIRECT_EXEMPT` not set to the recommended value `domain name` for production use."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "region": {
-                  "snippet": {
-                    "text": "\"\"\"\n"
-                  },
-                  "startLine": 1
-                },
-                "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
-                },
-                "contextRegion": {
-                  "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
-                  },
-                  "endLine": 4,
-                  "startLine": 1
-                }
-              }
-            }
-          ],
-          "properties": {
-            "issue_confidence": "HIGH",
-            "issue_severity": "MEDIUM"
-          },
-          "baselineState": "new",
-          "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
-        },
-        {
-          "message": {
-            "markdown": "",
-            "text": "Security Misconfiguration with the config `AUTHENTICATION_BACKENDS` not set to the recommended value `['django.contrib.auth.backends.ModelBackend']` for production use."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "region": {
-                  "snippet": {
-                    "text": "\"\"\"\n"
-                  },
-                  "startLine": 1
-                },
-                "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
-                },
-                "contextRegion": {
-                  "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
-                  },
-                  "endLine": 4,
-                  "startLine": 1
-                }
-              }
-            }
-          ],
-          "properties": {
-            "issue_confidence": "HIGH",
-            "issue_severity": "MEDIUM"
-          },
-          "baselineState": "new",
-          "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
-          "ruleIndex": 3
-        },
-        {
-          "message": {
-            "markdown": "",
-            "text": "Security Misconfiguration with the config `SESSION_COOKIE_DOMAIN` not set to the recommended value `domain name` for production use."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "region": {
-                  "snippet": {
-                    "text": "\"\"\"\n"
-                  },
-                  "startLine": 1
-                },
-                "artifactLocation": {
-                  "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat/djangogoat/settings.py"
-                },
-                "contextRegion": {
-                  "snippet": {
-                    "text": "\"\"\"\nDjango settings for djangogoat project.\n\nGenerated by 'django-admin startproject' using Django 2.1.7.\n"
-                  },
-                  "endLine": 4,
-                  "startLine": 1
-                }
-              }
-            }
-          ],
-          "properties": {
-            "issue_confidence": "HIGH",
-            "issue_severity": "MEDIUM"
-          },
-          "baselineState": "new",
-          "partialFingerprints": {},
-          "ruleId": "django-misconfiguration-recommended",
+          "ruleId": "flask-misconfiguration-controls",
           "ruleIndex": 3
         }
       ],
@@ -623,13 +1439,13 @@
         "description": {
           "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
         },
-        "guid": "32c45604-1e93-48d7-b366-37b075107845"
+        "guid": "c76aa077-3772-4c54-8366-6e31d7b54cfa"
       },
       "versionControlProvenance": [
         {
           "branch": "master",
-          "repositoryUri": "https://github.com/red-and-black/DjangoGoat",
-          "revisionId": "5e6aaa6d0497bf24abd179304e6ca51295a8091d"
+          "repositoryUri": "https://github.com/fportantier/vulpy",
+          "revisionId": "5249cc8b05a1c37f6b2f757b1cf16a509c327122"
         }
       ]
     }
@@ -638,8 +1454,8 @@
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
   "inlineExternalProperties": [
     {
-      "guid": "32c45604-1e93-48d7-b366-37b075107845",
-      "runGuid": "101a9036-96aa-479e-be22-d65efb7b5b5b"
+      "guid": "c76aa077-3772-4c54-8366-6e31d7b54cfa",
+      "runGuid": "30851219-8a74-459c-ba22-ce15239ebc16"
     }
   ]
 }

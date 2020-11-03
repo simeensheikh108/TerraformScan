@@ -1,8 +1,8 @@
 {
   "errors": [],
-  "generated_at": "2020-10-19T08:36:15Z",
+  "generated_at": "2020-11-03T07:57:03Z",
   "metrics": {
-    "/app/authentication/__init__.py": {
+    "/app/bad/api_list.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -11,10 +11,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
+      "loc": 14,
       "nosec": 0
     },
-    "/app/authentication/apps.py": {
+    "/app/bad/api_post.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -23,10 +23,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 3,
+      "loc": 23,
       "nosec": 0
     },
-    "/app/authentication/forms.py": {
+    "/app/bad/brute.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -35,22 +35,82 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 10,
+      "loc": 19,
       "nosec": 0
     },
-    "/app/authentication/migrations/0001_initial.py": {
+    "/app/bad/db.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
       "CONFIDENCE.UNDEFINED": 0.0,
       "SEVERITY.HIGH": 0.0,
       "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 18,
+      "nosec": 0
+    },
+    "/app/bad/db_init.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 32,
+      "nosec": 0
+    },
+    "/app/bad/libapi.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 22,
+      "nosec": 0
+    },
+    "/app/bad/libmfa.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 55,
+      "nosec": 0
+    },
+    "/app/bad/libposts.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 18,
+      "nosec": 0
+    },
+    "/app/bad/libsession.py": {
+      "CONFIDENCE.HIGH": 1.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 1.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
       "loc": 20,
       "nosec": 0
     },
-    "/app/authentication/migrations/__init__.py": {
+    "/app/bad/libuser.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -59,10 +119,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
+      "loc": 38,
       "nosec": 0
     },
-    "/app/authentication/models.py": {
+    "/app/bad/mod_api.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -71,106 +131,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 9,
+      "loc": 50,
       "nosec": 0
     },
-    "/app/authentication/views.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 67,
-      "nosec": 0
-    },
-    "/app/common/__init__.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
-      "nosec": 0
-    },
-    "/app/common/apps.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 3,
-      "nosec": 0
-    },
-    "/app/common/decorators.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 7,
-      "nosec": 0
-    },
-    "/app/common/middleware.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 10,
-      "nosec": 0
-    },
-    "/app/common/migrations/__init__.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
-      "nosec": 0
-    },
-    "/app/common/models.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 10,
-      "nosec": 0
-    },
-    "/app/common/templatetags/__init__.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
-      "nosec": 0
-    },
-    "/app/common/templatetags/setclass.py": {
+    "/app/bad/mod_csp.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -182,7 +146,7 @@
       "loc": 5,
       "nosec": 0
     },
-    "/app/common/templatetags/setclass_rm_autocomplete.py": {
+    "/app/bad/mod_hello.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -194,7 +158,7 @@
       "loc": 5,
       "nosec": 0
     },
-    "/app/djangogoat/__init__.py": {
+    "/app/bad/mod_mfa.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -203,10 +167,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
+      "loc": 42,
       "nosec": 0
     },
-    "/app/djangogoat/settings.py": {
+    "/app/bad/mod_posts.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -215,10 +179,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 101,
+      "loc": 23,
       "nosec": 0
     },
-    "/app/djangogoat/urls.py": {
+    "/app/bad/mod_user.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -227,58 +191,34 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 61,
+      "loc": 51,
       "nosec": 0
     },
-    "/app/djangogoat/wsgi.py": {
+    "/app/bad/vulpy-ssl.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
       "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.HIGH": 1.0,
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 10,
+      "loc": 19,
       "nosec": 0
     },
-    "/app/features/environment.py": {
+    "/app/bad/vulpy.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
       "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.HIGH": 1.0,
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 241,
+      "loc": 41,
       "nosec": 0
     },
-    "/app/features/steps/authentication.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 111,
-      "nosec": 0
-    },
-    "/app/features/steps/notes.py": {
-      "CONFIDENCE.HIGH": 0.0,
-      "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
-      "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
-      "SEVERITY.MEDIUM": 0.0,
-      "SEVERITY.UNDEFINED": 0.0,
-      "loc": 73,
-      "nosec": 0
-    },
-    "/app/manage.py": {
+    "/app/good/cutpasswd.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -290,7 +230,7 @@
       "loc": 13,
       "nosec": 0
     },
-    "/app/notes/__init__.py": {
+    "/app/good/db_init.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -299,10 +239,274 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
+      "loc": 33,
       "nosec": 0
     },
-    "/app/notes/apps.py": {
+    "/app/good/httpbrute.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 19,
+      "nosec": 0
+    },
+    "/app/good/libapi.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 37,
+      "nosec": 0
+    },
+    "/app/good/libmfa.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 55,
+      "nosec": 0
+    },
+    "/app/good/libposts.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 18,
+      "nosec": 0
+    },
+    "/app/good/libsession.py": {
+      "CONFIDENCE.HIGH": 1.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 1.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 39,
+      "nosec": 0
+    },
+    "/app/good/libuser.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 90,
+      "nosec": 0
+    },
+    "/app/good/mod_api.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 47,
+      "nosec": 0
+    },
+    "/app/good/mod_csp.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 5,
+      "nosec": 0
+    },
+    "/app/good/mod_hello.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 5,
+      "nosec": 0
+    },
+    "/app/good/mod_mfa.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 47,
+      "nosec": 0
+    },
+    "/app/good/mod_posts.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 23,
+      "nosec": 0
+    },
+    "/app/good/mod_user.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 58,
+      "nosec": 0
+    },
+    "/app/good/mod_welcome1.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 19,
+      "nosec": 0
+    },
+    "/app/good/vulpy-ssl.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 1.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 19,
+      "nosec": 0
+    },
+    "/app/good/vulpy.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 1.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 1.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 40,
+      "nosec": 0
+    },
+    "/app/utils/aes-decrypt.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 20,
+      "nosec": 0
+    },
+    "/app/utils/aes-encrypt.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 21,
+      "nosec": 0
+    },
+    "/app/utils/ca-create.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 43,
+      "nosec": 0
+    },
+    "/app/utils/ca-csr-create.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 26,
+      "nosec": 0
+    },
+    "/app/utils/ca-csr-load.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 27,
+      "nosec": 0
+    },
+    "/app/utils/crack-cvv.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 15,
+      "nosec": 0
+    },
+    "/app/utils/crack-hash.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 15,
+      "nosec": 0
+    },
+    "/app/utils/fernet-generate-key.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -314,7 +518,7 @@
       "loc": 3,
       "nosec": 0
     },
-    "/app/notes/forms.py": {
+    "/app/utils/generate_bad_passwords.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -323,10 +527,34 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 16,
+      "loc": 29,
       "nosec": 0
     },
-    "/app/notes/migrations/0001_initial.py": {
+    "/app/utils/hashfile.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 14,
+      "nosec": 0
+    },
+    "/app/utils/hmac_generate.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 13,
+      "nosec": 0
+    },
+    "/app/utils/httpbrute.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -338,7 +566,7 @@
       "loc": 24,
       "nosec": 0
     },
-    "/app/notes/migrations/__init__.py": {
+    "/app/utils/luncheck.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -347,10 +575,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 0,
+      "loc": 13,
       "nosec": 0
     },
-    "/app/notes/models.py": {
+    "/app/utils/rsa-decrypt.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -359,10 +587,10 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 16,
+      "loc": 21,
       "nosec": 0
     },
-    "/app/notes/views.py": {
+    "/app/utils/rsa-encrypt.py": {
       "CONFIDENCE.HIGH": 0.0,
       "CONFIDENCE.LOW": 0.0,
       "CONFIDENCE.MEDIUM": 0.0,
@@ -371,19 +599,103 @@
       "SEVERITY.LOW": 0.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 83,
+      "loc": 20,
+      "nosec": 0
+    },
+    "/app/utils/rsa-keygen.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 23,
+      "nosec": 0
+    },
+    "/app/utils/rsa-sign.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 27,
+      "nosec": 0
+    },
+    "/app/utils/rsa-verify.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 31,
+      "nosec": 0
+    },
+    "/app/utils/scrypt-crack.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 36,
+      "nosec": 0
+    },
+    "/app/utils/scrypt-generate.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 23,
+      "nosec": 0
+    },
+    "/app/utils/scrypt-verify.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 28,
+      "nosec": 0
+    },
+    "/app/utils/skey.py": {
+      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.LOW": 0.0,
+      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.UNDEFINED": 0.0,
+      "SEVERITY.HIGH": 0.0,
+      "SEVERITY.LOW": 0.0,
+      "SEVERITY.MEDIUM": 0.0,
+      "SEVERITY.UNDEFINED": 0.0,
+      "loc": 22,
       "nosec": 0
     },
     "_totals": {
-      "CONFIDENCE.HIGH": 0.0,
+      "CONFIDENCE.HIGH": 2.0,
       "CONFIDENCE.LOW": 0.0,
-      "CONFIDENCE.MEDIUM": 0.0,
+      "CONFIDENCE.MEDIUM": 4.0,
       "CONFIDENCE.UNDEFINED": 0.0,
-      "SEVERITY.HIGH": 0.0,
-      "SEVERITY.LOW": 0.0,
+      "SEVERITY.HIGH": 4.0,
+      "SEVERITY.LOW": 2.0,
       "SEVERITY.MEDIUM": 0.0,
       "SEVERITY.UNDEFINED": 0.0,
-      "loc": 901,
+      "loc": 1556,
       "nosec": 0
     }
   },

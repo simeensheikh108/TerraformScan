@@ -1,293 +1,853 @@
 {
-  "generated_at": "2020-10-19T08:36:15Z",
+  "generated_at": "2020-11-03T07:57:02Z",
   "vulnerabilities": [
     {
-      "rule_id": "taint-open-redirect",
-      "rule_name": "Open Redirect",
-      "severity": "HIGH",
-      "cwe_category": "CWE-601",
-      "owasp_category": "a6-misconfiguration",
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
       "source": {
-        "label": "friend_pk",
-        "line_number": 68,
-        "path": "/app/notes/views.py"
+        "label": "username",
+        "line_number": 5,
+        "path": "/app/good/libmfa.py"
       },
       "source_trigger_word": "Framework function URL parameter",
       "source_type": "Framework_Parameter",
       "sink": {
-        "label": "~call_9 = ret_django.shortcuts.redirect(conversation, friend_pk=friend_pk)",
-        "line_number": 89,
-        "path": "/app/notes/views.py"
+        "label": "~call_4 = ret_c.execute(SELECT * FROM users WHERE username = ? and mfa_enabled = 1, (username))",
+        "line_number": 12,
+        "path": "/app/good/libmfa.py"
       },
-      "sink_trigger_word": "redirect(",
-      "sink_type": "Redirect",
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
       "type": "Vulnerability",
       "reassignment_nodes": [],
-      "description": "Data from `friend_pk in views.py:68` may be used in an open redirect via `views.py:89`.",
-      "short_description": "Data from `friend_pk in views.py:68` may be used in an open redirect via `views.py:89`."
+      "description": "SQL injection with user data from `username in libmfa.py:5` used to construct the query at `libmfa.py:12`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:5` used to construct the query at `libmfa.py:12`."
     },
     {
-      "rule_id": "django-misconfiguration-static",
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 20,
+        "path": "/app/good/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(UPDATE users SET mfa_enabled = 0 WHERE username = ?, (username))",
+        "line_number": 27,
+        "path": "/app/good/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:20` used to construct the query at `libmfa.py:27`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:20` used to construct the query at `libmfa.py:27`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 33,
+        "path": "/app/good/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(UPDATE users SET mfa_enabled = 1 WHERE username = ?, (username))",
+        "line_number": 43,
+        "path": "/app/good/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:33` used to construct the query at `libmfa.py:43`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:33` used to construct the query at `libmfa.py:43`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 49,
+        "path": "/app/good/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(SELECT * FROM users WHERE username = ?, (username))",
+        "line_number": 59,
+        "path": "/app/good/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:49` used to construct the query at `libmfa.py:59`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:49` used to construct the query at `libmfa.py:59`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 67,
+        "path": "/app/good/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_5 = ret_c.execute(UPDATE users SET mfa_secret = ? WHERE username = ?, (secret, username))",
+        "line_number": 78,
+        "path": "/app/good/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:67` used to construct the query at `libmfa.py:78`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:67` used to construct the query at `libmfa.py:78`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 87,
+        "path": "/app/good/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_5 = ret_c.execute(SELECT * FROM users WHERE username = ?, (username))",
+        "line_number": 59,
+        "path": "/app/good/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [
+        {
+          "label": "temp_1_username = username",
+          "line_number": 89,
+          "path": "/app/good/libmfa.py"
+        },
+        {
+          "label": "username = temp_1_username",
+          "line_number": 49,
+          "path": "/app/good/libmfa.py"
+        }
+      ],
+      "description": "SQL injection with user data from `username in libmfa.py:87` used to construct the query at `libmfa.py:59`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:87` used to construct the query at `libmfa.py:59`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 7,
+        "path": "/app/good/libposts.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(SELECT * FROM posts WHERE username = ? ORDER BY date DESC, (username))",
+        "line_number": 14,
+        "path": "/app/good/libposts.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libposts.py:7` used to construct the query at `libposts.py:14`.",
+      "short_description": "SQL injection with user data from `username in libposts.py:7` used to construct the query at `libposts.py:14`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "text",
+        "line_number": 21,
+        "path": "/app/good/libposts.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(INSERT INTO posts (username, text, date) VALUES (?, ?, DateTime('now')), (username, text))",
+        "line_number": 28,
+        "path": "/app/good/libposts.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `text in libposts.py:21` used to construct the query at `libposts.py:28`.",
+      "short_description": "SQL injection with user data from `text in libposts.py:21` used to construct the query at `libposts.py:28`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 15,
+        "path": "/app/good/libuser.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(SELECT * FROM users WHERE username = ?, (username))",
+        "line_number": 22,
+        "path": "/app/good/libuser.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libuser.py:15` used to construct the query at `libuser.py:22`.",
+      "short_description": "SQL injection with user data from `username in libuser.py:15` used to construct the query at `libuser.py:22`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 55,
+        "path": "/app/good/libuser.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(INSERT INTO users (username, password, salt, failures, mfa_enabled, mfa_secret) VALUES ('%s', '%s', '%s', '%d', '%d', '%s') % (username, , , 0, 0, ))",
+        "line_number": 61,
+        "path": "/app/good/libuser.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libuser.py:55` used to construct the query at `libuser.py:61`.",
+      "short_description": "SQL injection with user data from `username in libuser.py:55` used to construct the query at `libuser.py:61`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 5,
+        "path": "/app/bad/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(SELECT * FROM users WHERE username = ? and mfa_enabled = 1, (username))",
+        "line_number": 12,
+        "path": "/app/bad/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:5` used to construct the query at `libmfa.py:12`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:5` used to construct the query at `libmfa.py:12`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 20,
+        "path": "/app/bad/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(UPDATE users SET mfa_enabled = 0 WHERE username = ?, (username))",
+        "line_number": 27,
+        "path": "/app/bad/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:20` used to construct the query at `libmfa.py:27`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:20` used to construct the query at `libmfa.py:27`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 33,
+        "path": "/app/bad/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(UPDATE users SET mfa_enabled = 1 WHERE username = ?, (username))",
+        "line_number": 43,
+        "path": "/app/bad/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:33` used to construct the query at `libmfa.py:43`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:33` used to construct the query at `libmfa.py:43`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 49,
+        "path": "/app/bad/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(SELECT * FROM users WHERE username = ?, (username))",
+        "line_number": 59,
+        "path": "/app/bad/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:49` used to construct the query at `libmfa.py:59`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:49` used to construct the query at `libmfa.py:59`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 67,
+        "path": "/app/bad/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_5 = ret_c.execute(UPDATE users SET mfa_secret = ? WHERE username = ?, (secret, username))",
+        "line_number": 78,
+        "path": "/app/bad/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libmfa.py:67` used to construct the query at `libmfa.py:78`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:67` used to construct the query at `libmfa.py:78`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 87,
+        "path": "/app/bad/libmfa.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_5 = ret_c.execute(SELECT * FROM users WHERE username = ?, (username))",
+        "line_number": 59,
+        "path": "/app/bad/libmfa.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [
+        {
+          "label": "temp_1_username = username",
+          "line_number": 89,
+          "path": "/app/bad/libmfa.py"
+        },
+        {
+          "label": "username = temp_1_username",
+          "line_number": 49,
+          "path": "/app/bad/libmfa.py"
+        }
+      ],
+      "description": "SQL injection with user data from `username in libmfa.py:87` used to construct the query at `libmfa.py:59`.",
+      "short_description": "SQL injection with user data from `username in libmfa.py:87` used to construct the query at `libmfa.py:59`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "username",
+        "line_number": 7,
+        "path": "/app/bad/libposts.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(SELECT * FROM posts WHERE username = ? ORDER BY date DESC, (username))",
+        "line_number": 14,
+        "path": "/app/bad/libposts.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `username in libposts.py:7` used to construct the query at `libposts.py:14`.",
+      "short_description": "SQL injection with user data from `username in libposts.py:7` used to construct the query at `libposts.py:14`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "text",
+        "line_number": 21,
+        "path": "/app/bad/libposts.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_4 = ret_c.execute(INSERT INTO posts (username, text, date) VALUES (?, ?, DateTime('now')), (username, text))",
+        "line_number": 28,
+        "path": "/app/bad/libposts.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `text in libposts.py:21` used to construct the query at `libposts.py:28`.",
+      "short_description": "SQL injection with user data from `text in libposts.py:21` used to construct the query at `libposts.py:28`."
+    },
+    {
+      "rule_id": "taint-sqli",
+      "rule_name": "SQL Injection",
+      "severity": "CRITICAL",
+      "cwe_category": "CWE-89",
+      "owasp_category": "a1-injection",
+      "source": {
+        "label": "password",
+        "line_number": 20,
+        "path": "/app/bad/libuser.py"
+      },
+      "source_trigger_word": "Framework function URL parameter",
+      "source_type": "Framework_Parameter",
+      "sink": {
+        "label": "~call_3 = ret_c.execute(INSERT INTO users (username, password, failures, mfa_enabled, mfa_secret) VALUES ('%s', '%s', '%d', '%d', '%s') % (username, password, 0, 0, ))",
+        "line_number": 25,
+        "path": "/app/bad/libuser.py"
+      },
+      "sink_trigger_word": "execute(",
+      "sink_type": "SQL",
+      "type": "Vulnerability",
+      "reassignment_nodes": [],
+      "description": "SQL injection with user data from `password in libuser.py:20` used to construct the query at `libuser.py:25`.",
+      "short_description": "SQL injection with user data from `password in libuser.py:20` used to construct the query at `libuser.py:25`."
+    },
+    {
+      "rule_id": "flask-misconfiguration-static",
       "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `et3a****`",
-      "description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `et3a****`",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
+      "short_description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`",
+      "description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
       "cwe_category": "CWE-732",
       "owasp_category": "a6-misconfiguration",
       "severity": "LOW",
       "source": {
         "trigger_word": "SECRET_KEY",
-        "line_number": 24,
+        "line_number": 13,
         "label": "SECRET_KEY",
-        "path": "/app/djangogoat/settings.py"
+        "path": "/app/good/vulpy-ssl.py"
       },
       "sink": {
-        "trigger_word": "et3a+y)7vy(6pkf*3)a^xs4lzln8n+&1-u7(7c#sh=rg82gfoe",
-        "line_number": 24,
-        "label": "et3a+y)7vy(6pkf*3)a^xs4lzln8n+&1-u7(7c#sh=rg82gfoe",
-        "path": "/app/djangogoat/settings.py"
+        "trigger_word": "aaaaaaa",
+        "line_number": 13,
+        "label": "aaaaaaa",
+        "path": "/app/good/vulpy-ssl.py"
       }
     },
     {
-      "rule_id": "django-misconfiguration-insecure",
+      "rule_id": "flask-misconfiguration-recommended",
       "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `DEBUG` set to a value `False` meant for development use",
-      "description": "Security Misconfiguration with the config `DEBUG` set to a value `False` meant for development use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
+      "short_description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "MEDIUM",
+      "source": {
+        "trigger_word": "PREFERRED_URL_SCHEME",
+        "line_number": 1,
+        "label": "PREFERRED_URL_SCHEME",
+        "path": "/app/good/vulpy-ssl.py"
+      },
+      "sink": {
+        "trigger_word": "http",
+        "line_number": 1,
+        "label": "http",
+        "path": "/app/good/vulpy-ssl.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-recommended",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "MEDIUM",
+      "source": {
+        "trigger_word": "SESSION_COOKIE_SECURE",
+        "line_number": 1,
+        "label": "SESSION_COOKIE_SECURE",
+        "path": "/app/good/vulpy-ssl.py"
+      },
+      "sink": {
+        "trigger_word": null,
+        "line_number": 1,
+        "label": null,
+        "path": "/app/good/vulpy-ssl.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-controls",
+      "rule_name": "Missing Security Controls",
+      "short_description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "recommendation": "Flask-Security allows you to quickly add common security mechanisms to your Flask application. Flask-Social can also be used to add social or OAuth login and connection management.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/index.html)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n\n**[Flask Talisman](https://github.com/GoogleCloudPlatform/flask-talisman)**\n",
       "cwe_category": "CWE-732",
       "owasp_category": "a6-misconfiguration",
       "severity": "LOW",
       "source": {
-        "trigger_word": "DEBUG",
-        "line_number": 27,
-        "label": "DEBUG",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": "False",
-        "line_number": 27,
-        "label": "False",
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `CSRF_COOKIE_DOMAIN` not set to the recommended value `domain name` for production use",
-      "description": "Security Misconfiguration with the config `CSRF_COOKIE_DOMAIN` not set to the recommended value `domain name` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "CSRF_COOKIE_DOMAIN",
+        "trigger_word": "flask_security",
         "line_number": 1,
-        "label": "CSRF_COOKIE_DOMAIN",
-        "path": "/app/djangogoat/settings.py"
+        "label": "flask_security",
+        "path": "/app/good/vulpy-ssl.py"
       },
       "sink": {
         "trigger_word": null,
         "line_number": 1,
         "label": null,
-        "path": "/app/djangogoat/settings.py"
+        "path": "/app/good/vulpy-ssl.py"
       }
     },
     {
-      "rule_id": "django-misconfiguration-recommended",
+      "rule_id": "flask-misconfiguration-static",
       "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `CSRF_USE_SESSIONS` not set to the recommended value `True` for production use",
-      "description": "Security Misconfiguration with the config `CSRF_USE_SESSIONS` not set to the recommended value `True` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
+      "short_description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `123a****`",
+      "description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `123a****`",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
       "cwe_category": "CWE-732",
       "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
+      "severity": "LOW",
       "source": {
-        "trigger_word": "CSRF_USE_SESSIONS",
-        "line_number": 1,
-        "label": "CSRF_USE_SESSIONS",
-        "path": "/app/djangogoat/settings.py"
+        "trigger_word": "SECRET_KEY",
+        "line_number": 17,
+        "label": "SECRET_KEY",
+        "path": "/app/good/vulpy.py"
       },
       "sink": {
-        "trigger_word": false,
-        "line_number": 1,
-        "label": false,
-        "path": "/app/djangogoat/settings.py"
+        "trigger_word": "123aa8a93bdde342c871564a62282af857bda14b3359fde95d0c5e4b321610c1",
+        "line_number": 17,
+        "label": "123aa8a93bdde342c871564a62282af857bda14b3359fde95d0c5e4b321610c1",
+        "path": "/app/good/vulpy.py"
       }
     },
     {
-      "rule_id": "django-misconfiguration-recommended",
+      "rule_id": "flask-misconfiguration-recommended",
       "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `CSRF_TRUSTED_ORIGINS` not set to the recommended value `domain name` for production use",
-      "description": "Security Misconfiguration with the config `CSRF_TRUSTED_ORIGINS` not set to the recommended value `domain name` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
+      "short_description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
       "cwe_category": "CWE-732",
       "owasp_category": "a6-misconfiguration",
       "severity": "MEDIUM",
       "source": {
-        "trigger_word": "CSRF_TRUSTED_ORIGINS",
+        "trigger_word": "PREFERRED_URL_SCHEME",
         "line_number": 1,
-        "label": "CSRF_TRUSTED_ORIGINS",
-        "path": "/app/djangogoat/settings.py"
+        "label": "PREFERRED_URL_SCHEME",
+        "path": "/app/good/vulpy.py"
       },
       "sink": {
-        "trigger_word": [],
+        "trigger_word": "http",
         "line_number": 1,
-        "label": [],
-        "path": "/app/djangogoat/settings.py"
+        "label": "http",
+        "path": "/app/good/vulpy.py"
       }
     },
     {
-      "rule_id": "django-misconfiguration-recommended",
+      "rule_id": "flask-misconfiguration-recommended",
       "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `DATA_UPLOAD_MAX_MEMORY_SIZE` not set to the recommended value `2621440` for production use",
-      "description": "Security Misconfiguration with the config `DATA_UPLOAD_MAX_MEMORY_SIZE` not set to the recommended value `2621440` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
+      "short_description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
       "cwe_category": "CWE-732",
       "owasp_category": "a6-misconfiguration",
       "severity": "MEDIUM",
       "source": {
-        "trigger_word": "DATA_UPLOAD_MAX_MEMORY_SIZE",
+        "trigger_word": "SESSION_COOKIE_SECURE",
         "line_number": 1,
-        "label": "DATA_UPLOAD_MAX_MEMORY_SIZE",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": "2621440",
-        "line_number": 1,
-        "label": "2621440",
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `DATA_UPLOAD_MAX_NUMBER_FIELDS` not set to the recommended value `100` for production use",
-      "description": "Security Misconfiguration with the config `DATA_UPLOAD_MAX_NUMBER_FIELDS` not set to the recommended value `100` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "DATA_UPLOAD_MAX_NUMBER_FIELDS",
-        "line_number": 1,
-        "label": "DATA_UPLOAD_MAX_NUMBER_FIELDS",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": "1000",
-        "line_number": 1,
-        "label": "1000",
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `SECURE_HSTS_INCLUDE_SUBDOMAINS` not set to the recommended value `True` for production use",
-      "description": "Security Misconfiguration with the config `SECURE_HSTS_INCLUDE_SUBDOMAINS` not set to the recommended value `True` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "SECURE_HSTS_INCLUDE_SUBDOMAINS",
-        "line_number": 1,
-        "label": "SECURE_HSTS_INCLUDE_SUBDOMAINS",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": false,
-        "line_number": 1,
-        "label": false,
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `SECURE_HSTS_PRELOAD` not set to the recommended value `True` for production use",
-      "description": "Security Misconfiguration with the config `SECURE_HSTS_PRELOAD` not set to the recommended value `True` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "SECURE_HSTS_PRELOAD",
-        "line_number": 1,
-        "label": "SECURE_HSTS_PRELOAD",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": false,
-        "line_number": 1,
-        "label": false,
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `SECURE_REDIRECT_EXEMPT` not set to the recommended value `domain name` for production use",
-      "description": "Security Misconfiguration with the config `SECURE_REDIRECT_EXEMPT` not set to the recommended value `domain name` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "SECURE_REDIRECT_EXEMPT",
-        "line_number": 1,
-        "label": "SECURE_REDIRECT_EXEMPT",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": [],
-        "line_number": 1,
-        "label": [],
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `AUTHENTICATION_BACKENDS` not set to the recommended value `['django.contrib.auth.backends.ModelBackend']` for production use",
-      "description": "Security Misconfiguration with the config `AUTHENTICATION_BACKENDS` not set to the recommended value `['django.contrib.auth.backends.ModelBackend']` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "AUTHENTICATION_BACKENDS",
-        "line_number": 1,
-        "label": "AUTHENTICATION_BACKENDS",
-        "path": "/app/djangogoat/settings.py"
-      },
-      "sink": {
-        "trigger_word": "['django.contrib.auth.backends.ModelBackend']",
-        "line_number": 1,
-        "label": "['django.contrib.auth.backends.ModelBackend']",
-        "path": "/app/djangogoat/settings.py"
-      }
-    },
-    {
-      "rule_id": "django-misconfiguration-recommended",
-      "rule_name": "Security Misconfiguration",
-      "short_description": "Security Misconfiguration with the config `SESSION_COOKIE_DOMAIN` not set to the recommended value `domain name` for production use",
-      "description": "Security Misconfiguration with the config `SESSION_COOKIE_DOMAIN` not set to the recommended value `domain name` for production use",
-      "recommendation": "Django application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Django Security](https://docs.djangoproject.com/en/2.2/topics/security/)**\n\n**[Deployment Checklist](https://docs.djangoproject.com/en/dev/howto/deployment/checklist/)**\n",
-      "cwe_category": "CWE-732",
-      "owasp_category": "a6-misconfiguration",
-      "severity": "MEDIUM",
-      "source": {
-        "trigger_word": "SESSION_COOKIE_DOMAIN",
-        "line_number": 1,
-        "label": "SESSION_COOKIE_DOMAIN",
-        "path": "/app/djangogoat/settings.py"
+        "label": "SESSION_COOKIE_SECURE",
+        "path": "/app/good/vulpy.py"
       },
       "sink": {
         "trigger_word": null,
         "line_number": 1,
         "label": null,
-        "path": "/app/djangogoat/settings.py"
+        "path": "/app/good/vulpy.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-controls",
+      "rule_name": "Missing Security Controls",
+      "short_description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "recommendation": "Flask-Security allows you to quickly add common security mechanisms to your Flask application. Flask-Social can also be used to add social or OAuth login and connection management.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/index.html)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n\n**[Flask Talisman](https://github.com/GoogleCloudPlatform/flask-talisman)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "LOW",
+      "source": {
+        "trigger_word": "flask_security",
+        "line_number": 1,
+        "label": "flask_security",
+        "path": "/app/good/vulpy.py"
+      },
+      "sink": {
+        "trigger_word": null,
+        "line_number": 1,
+        "label": null,
+        "path": "/app/good/vulpy.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-static",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`",
+      "description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "LOW",
+      "source": {
+        "trigger_word": "SECRET_KEY",
+        "line_number": 13,
+        "label": "SECRET_KEY",
+        "path": "/app/bad/vulpy-ssl.py"
+      },
+      "sink": {
+        "trigger_word": "aaaaaaa",
+        "line_number": 13,
+        "label": "aaaaaaa",
+        "path": "/app/bad/vulpy-ssl.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-recommended",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "MEDIUM",
+      "source": {
+        "trigger_word": "PREFERRED_URL_SCHEME",
+        "line_number": 1,
+        "label": "PREFERRED_URL_SCHEME",
+        "path": "/app/bad/vulpy-ssl.py"
+      },
+      "sink": {
+        "trigger_word": "http",
+        "line_number": 1,
+        "label": "http",
+        "path": "/app/bad/vulpy-ssl.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-recommended",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "MEDIUM",
+      "source": {
+        "trigger_word": "SESSION_COOKIE_SECURE",
+        "line_number": 1,
+        "label": "SESSION_COOKIE_SECURE",
+        "path": "/app/bad/vulpy-ssl.py"
+      },
+      "sink": {
+        "trigger_word": null,
+        "line_number": 1,
+        "label": null,
+        "path": "/app/bad/vulpy-ssl.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-controls",
+      "rule_name": "Missing Security Controls",
+      "short_description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "recommendation": "Flask-Security allows you to quickly add common security mechanisms to your Flask application. Flask-Social can also be used to add social or OAuth login and connection management.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/index.html)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n\n**[Flask Talisman](https://github.com/GoogleCloudPlatform/flask-talisman)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "LOW",
+      "source": {
+        "trigger_word": "flask_security",
+        "line_number": 1,
+        "label": "flask_security",
+        "path": "/app/bad/vulpy-ssl.py"
+      },
+      "sink": {
+        "trigger_word": null,
+        "line_number": 1,
+        "label": null,
+        "path": "/app/bad/vulpy-ssl.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-static",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`",
+      "description": "Security Misconfiguration with the config `SECRET_KEY` set to a static value `aaaa****`",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "LOW",
+      "source": {
+        "trigger_word": "SECRET_KEY",
+        "line_number": 16,
+        "label": "SECRET_KEY",
+        "path": "/app/bad/vulpy.py"
+      },
+      "sink": {
+        "trigger_word": "aaaaaaa",
+        "line_number": 16,
+        "label": "aaaaaaa",
+        "path": "/app/bad/vulpy.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-recommended",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "description": "Security Misconfiguration with the config `PREFERRED_URL_SCHEME` not set to the recommended value `https` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "MEDIUM",
+      "source": {
+        "trigger_word": "PREFERRED_URL_SCHEME",
+        "line_number": 1,
+        "label": "PREFERRED_URL_SCHEME",
+        "path": "/app/bad/vulpy.py"
+      },
+      "sink": {
+        "trigger_word": "http",
+        "line_number": 1,
+        "label": "http",
+        "path": "/app/bad/vulpy.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-recommended",
+      "rule_name": "Security Misconfiguration",
+      "short_description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "description": "Security Misconfiguration with the config `SESSION_COOKIE_SECURE` not set to the recommended value `True` for production use",
+      "recommendation": "Flask application is not configured correctly for deployment to production and live environments. Default settings that are more appropriate for development environment are in use.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/configuration.html)**\n\n**[Flask Security Considerations](https://flask.palletsprojects.com/en/1.1.x/security/#security-considerations)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "MEDIUM",
+      "source": {
+        "trigger_word": "SESSION_COOKIE_SECURE",
+        "line_number": 1,
+        "label": "SESSION_COOKIE_SECURE",
+        "path": "/app/bad/vulpy.py"
+      },
+      "sink": {
+        "trigger_word": null,
+        "line_number": 1,
+        "label": null,
+        "path": "/app/bad/vulpy.py"
+      }
+    },
+    {
+      "rule_id": "flask-misconfiguration-controls",
+      "rule_name": "Missing Security Controls",
+      "short_description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "description": "Consider adding Flask-Security and Flask-Talisman security extensions to your Flask apps",
+      "recommendation": "Flask-Security allows you to quickly add common security mechanisms to your Flask application. Flask-Social can also be used to add social or OAuth login and connection management.\n\n## Additional information\n\n**[OWASP-A6](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration)**\n\n**[Flask Security](https://flask-security.readthedocs.io/en/develop/index.html)**\n\n**[Flask Configuration](https://flask.palletsprojects.com/en/1.1.x/api/#configuration)**\n\n**[Flask Talisman](https://github.com/GoogleCloudPlatform/flask-talisman)**\n",
+      "cwe_category": "CWE-732",
+      "owasp_category": "a6-misconfiguration",
+      "severity": "LOW",
+      "source": {
+        "trigger_word": "flask_security",
+        "line_number": 1,
+        "label": "flask_security",
+        "path": "/app/bad/vulpy.py"
+      },
+      "sink": {
+        "trigger_word": null,
+        "line_number": 1,
+        "label": null,
+        "path": "/app/bad/vulpy.py"
       }
     }
   ]

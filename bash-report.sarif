@@ -3,9 +3,9 @@
     {
       "tool": {
         "driver": {
-          "name": "Python Source Analyzer",
+          "name": "Shell Script Analysis",
           "version": "1.0.0-scan",
-          "fullName": "Python Source Analyzer"
+          "fullName": "Shell Script Analysis"
         }
       },
       "conversion": {
@@ -16,26 +16,18 @@
         },
         "invocation": {
           "arguments": [
-            "-r",
             "-a",
-            "vuln",
-            "-n",
-            "3",
-            "-s",
-            "B101,B102,B105,B307,B308,B310,B322,B404,B601,B602,B603,B604,B605,B701,B702,B703",
-            "-iii",
-            "-ll",
-            "-o",
-            "/app/reports/source-python-report.json",
+            "--shell=bash",
             "-f",
             "json",
-            "-x",
-            ".git,.svn,.mvn,.idea,.github,.hg,dist,obj,backup,docs,tests,test,test-packages,tmp,report,reports,node_modules,.terraform,.serverless,venv,.virtualenv,vendor,bower_components,.vscode,e2e,.pytest_cache,__pycache__,.storybook,.venv,.tox,examples,tutorials,samples,db_migrations,unittests,unittests_legacy,stubs",
-            "/app"
+            "-S",
+            "error",
+            "--color=never",
+            "/app/install-on-kali.sh"
           ],
           "executionSuccessful": true,
-          "commandLine": "-r -a vuln -n 3 -s B101,B102,B105,B307,B308,B310,B322,B404,B601,B602,B603,B604,B605,B701,B702,B703 -iii -ll -o /app/reports/source-python-report.json -f json -x .git,.svn,.mvn,.idea,.github,.hg,dist,obj,backup,docs,tests,test,test-packages,tmp,report,reports,node_modules,.terraform,.serverless,venv,.virtualenv,vendor,bower_components,.vscode,e2e,.pytest_cache,__pycache__,.storybook,.venv,.tox,examples,tutorials,samples,db_migrations,unittests,unittests_legacy,stubs /app",
-          "endTimeUtc": "2020-11-03T07:57:03Z",
+          "commandLine": "-a --shell=bash -f json -S error --color=never /app/install-on-kali.sh",
+          "endTimeUtc": "2020-11-03T07:57:19Z",
           "workingDirectory": {
             "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
           }
@@ -44,7 +36,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2020-11-03T07:57:03Z",
+          "endTimeUtc": "2020-11-03T07:57:19Z",
           "workingDirectory": {
             "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
           }
@@ -64,7 +56,7 @@
         "description": {
           "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
         },
-        "guid": "208e1e1f-260e-43bb-94eb-202d42d47559"
+        "guid": "b14db9a7-8354-4cf9-bf50-05624df25b58"
       },
       "versionControlProvenance": [
         {
@@ -79,7 +71,7 @@
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
   "inlineExternalProperties": [
     {
-      "guid": "208e1e1f-260e-43bb-94eb-202d42d47559",
+      "guid": "b14db9a7-8354-4cf9-bf50-05624df25b58",
       "runGuid": "30851219-8a74-459c-ba22-ce15239ebc16"
     }
   ]

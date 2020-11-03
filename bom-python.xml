@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.2" serialNumber="urn:uuid:b5b7350c-e098-4be4-843b-0ce7a6f7d35f" version="1">
+  <externalReferences>
+    <reference type="other">
+      <url>/app</url>
+      <comment>Base path</comment>
+    </reference>
+    <reference type="other">
+      <url>/app/requirements.txt</url>
+      <comment>Package file</comment>
+    </reference>
+  </externalReferences>
+  <metadata>
+    <timestamp>2020-11-03T07:57:22.965Z</timestamp>
+    <tools>
+      <tool>
+        <vendor>AppThreat</vendor>
+        <name>cdxgen</name>
+        <version>2.0.15</version>
+      </tool>
+    </tools>
+    <authors>
+      <author>
+        <name>
+          <name>Team AppThreat</name>
+        </name>
+        <email>cloud@appthreat.com</email>
+      </author>
+    </authors>
+  </metadata>
+  <components>
+    <component type="library" bom-ref="pkg:pypi/click@7.1.2">
+      <name>click</name>
+      <version>7.1.2</version>
+      <hashes>
+        <hash alg="SHA-256">75a71c6bcf5fe1b7da75de5d7b777be3cf5bedcf1ae7ae9e79ed1ddfaefadf7ddf6dbe74d37d36eb7f3de1cdfc73475c</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>BSD-3-Clause</id>
+          <url>https://opensource.org/licenses/BSD-3-Clause</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/click@7.1.2</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>
+            <url>https://palletsprojects.com/p/click/</url>
+          </url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[Composable command line interface toolkit]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/cryptography@3.2.1">
+      <name>cryptography</name>
+      <version>3.2.1</version>
+      <hashes>
+        <hash alg="SHA-256">e9d739f7adf479c71ef1cd5fe79f36efb71e6f6d7673be7577aef7d1b775d9cf3479af7a6f869ceb9eb7edce1fe797bb</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>Apache-2.0</id>
+          <url>https://opensource.org/licenses/Apache-2.0</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/cryptography@3.2.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/pyca/cryptography</url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[cryptography is a package which provides cryptographic recipes and primitives to Python developers.]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/Flask@1.1.2">
+      <name>Flask</name>
+      <version>1.1.2</version>
+      <hashes>
+        <hash alg="SHA-256">f1ae1f75df3ddfa79b6b6e75d9ef5cf3975fdf6d1adfb7baf7873ddfde396f7dde7f7ddcf3df78e9adf8d1adb7f39e7b</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>BSD-3-Clause</id>
+          <url>https://opensource.org/licenses/BSD-3-Clause</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/Flask@1.1.2</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>
+            <url>https://palletsprojects.com/p/flask/</url>
+          </url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[A simple framework for building complex web applications.]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/geoip2@4.1.0">
+      <name>geoip2</name>
+      <version>4.1.0</version>
+      <hashes>
+        <hash alg="SHA-256">ef4ef4db9e78d9e7f4efa6ddf1f77cd1ef7bd77f1b79b75befcd76e76edbd9ad34eddd78d5adbb69df7c6f4dfbd1f7df</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>Apache-2.0</id>
+          <url>https://opensource.org/licenses/Apache-2.0</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/geoip2@4.1.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>
+            <url>http://www.maxmind.com/</url>
+          </url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[MaxMind GeoIP2 API]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/jsonschema@3.2.0">
+      <name>jsonschema</name>
+      <version>3.2.0</version>
+      <hashes>
+        <hash alg="SHA-256">e1ee5bddc7fcdb5e9fe7bedb79ef5c7b5dfd71b7bbd9e71adde6b87f6f7679ceb4f76f1f7f6e3be7c71eeb6e9c775eb7</hash>
+      </hashes>
+      <purl>pkg:pypi/jsonschema@3.2.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Julian/jsonschema</url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[An implementation of JSON Schema validation for Python]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/PyJWT@1.7.1">
+      <name>PyJWT</name>
+      <version>1.7.1</version>
+      <hashes>
+        <hash alg="SHA-256">e5ce9e71addcdbde34e3ae1dd74e9bf7d6daf376f4d1ce9a75def8d5cf5b79c69e734f3b7dbedc71d79f79aef5df9d1e</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>MIT</id>
+          <url>https://opensource.org/licenses/MIT</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/PyJWT@1.7.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>http://github.com/jpadilla/pyjwt</url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[JSON Web Token implementation in Python]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/pyotp@2.4.1">
+      <name>pyotp</name>
+      <version>2.4.1</version>
+      <hashes>
+        <hash alg="SHA-256">79fd3b737f77ebad39dbddbad5eebaf74d9eefcf1bdf67b8eb6eb4776736f5e6fbe34f7bf1d7fbefcdbad1ad5cd9be1c</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>MIT</id>
+          <url>https://opensource.org/licenses/MIT</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/pyotp@2.4.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/pyotp/pyotp</url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[Python One Time Password Library]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/qrcode@6.1">
+      <name>qrcode</name>
+      <version>6.1</version>
+      <hashes>
+        <hash alg="SHA-256">dfdf7a79ee7ad1f737f79df6f75d3ad37ef4e1cf36f7cd1f7fa77877977adbd7fd7377f6e5fdf8d7be1c7bceb4e9c7f9</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <name>BSD</name>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/qrcode@6.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/lincolnloop/python-qrcode</url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[QR Code image generator]]>
+      </description>
+    </component>
+    <component type="library" bom-ref="pkg:pypi/requests@2.24.0">
+      <name>requests</name>
+      <version>2.24.0</version>
+      <hashes>
+        <hash alg="SHA-256">7deef971cf786bde38ddbf76e3a7dcef4e3ddb6e1fef9eb4e1bd75ddcdfa69c6fdddff3b6fcd1e778d9ce3871b6fcf7c</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>Apache-2.0</id>
+          <url>https://opensource.org/licenses/Apache-2.0</url>
+        </license>
+      </licenses>
+      <purl>pkg:pypi/requests@2.24.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>
+            <url>https://requests.readthedocs.io</url>
+          </url>
+        </reference>
+      </externalReferences>
+      <description>
+        <![CDATA[Python HTTP for Humans.]]>
+      </description>
+    </component>
+  </components>
+</bom>

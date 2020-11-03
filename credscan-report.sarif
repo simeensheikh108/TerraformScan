@@ -1,0 +1,215 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Secrets Audit",
+          "rules": [
+            {
+              "id": "CWE-312",
+              "help": {
+                "text": "The application stores sensitive information in cleartext within a resource that might be accessible to another control sphere.\nBecause the information is stored in cleartext, attackers could potentially read it. Even if the information is encoded in a way that is not human-readable, certain techniques could determine which encoding is being used, then decode the information.",
+                "markdown": "The application stores sensitive information in cleartext within a resource that might be accessible to another control sphere.\nBecause the information is stored in cleartext, attackers could potentially read it. Even if the information is encoded in a way that is not human-readable, certain techniques could determine which encoding is being used, then decode the information."
+              },
+              "name": "Files with keys and credentials",
+              "properties": {
+                "tags": [
+                  "Scan"
+                ],
+                "precision": "very-high"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "The application stores sensitive information in cleartext within a resource that might be accessible to another control sphere."
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/312.html",
+              "shortDescription": {
+                "text": "Cleartext Storage of Sensitive Information."
+              }
+            }
+          ],
+          "version": "1.0.0-scan",
+          "fullName": "Secrets Audit"
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "@ShiftLeft/sast-scan"
+          }
+        },
+        "invocation": {
+          "arguments": [
+            "--config=/usr/local/src/lib/../credscan-config.toml",
+            "--depth=5",
+            "--repo-path=/app",
+            "--redact",
+            "--timeout=2m",
+            "--report=/app/reports/credscan-report.json",
+            "--report-format=json"
+          ],
+          "executionSuccessful": true,
+          "commandLine": "--config=/usr/local/src/lib/../credscan-config.toml --depth=5 --repo-path=/app --redact --timeout=2m --report=/app/reports/credscan-report.json --report-format=json",
+          "endTimeUtc": "2020-11-03T07:57:01Z",
+          "workingDirectory": {
+            "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
+          }
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2020-11-03T07:57:01Z",
+          "workingDirectory": {
+            "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
+          }
+        }
+      ],
+      "properties": {
+        "metrics": {
+          "total": 3,
+          "critical": 0,
+          "high": 3,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "markdown": "",
+            "text": "Credential in plaintext?\n\nRule: Files with keys and credentials\nLine: N/A\n\nCommit: 0055ef29e3a3f6cf40371555a216474b24f46bb4."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "N/A"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/cutpasswd.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "N/A"
+                  },
+                  "endLine": 1,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "HIGH"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "CWE-312",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Credential in plaintext?\n\nRule: Files with keys and credentials\nLine: N/A\n\nCommit: 0055ef29e3a3f6cf40371555a216474b24f46bb4."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "N/A"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/good/templates/user.chpasswd.html"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "N/A"
+                  },
+                  "endLine": 1,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "HIGH"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "CWE-312",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "Credential in plaintext?\n\nRule: Files with keys and credentials\nLine: N/A\n\nCommit: 0f7bee37b9807c97da933c480e1d90d07243dc7a."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "N/A"
+                  },
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "file:///home/ec2-user/vulnerableapps/vulpy/bad/cutpasswd.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "N/A"
+                  },
+                  "endLine": 1,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "HIGH"
+          },
+          "baselineState": "new",
+          "partialFingerprints": {},
+          "ruleId": "CWE-312",
+          "ruleIndex": 0
+        }
+      ],
+      "automationDetails": {
+        "description": {
+          "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
+        },
+        "guid": "c615e441-5a64-4c41-9a81-68b35a78245f"
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "master",
+          "repositoryUri": "https://github.com/fportantier/vulpy",
+          "revisionId": "5249cc8b05a1c37f6b2f757b1cf16a509c327122"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "inlineExternalProperties": [
+    {
+      "guid": "c615e441-5a64-4c41-9a81-68b35a78245f",
+      "runGuid": "30851219-8a74-459c-ba22-ce15239ebc16"
+    }
+  ]
+}

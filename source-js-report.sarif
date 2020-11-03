@@ -19,23 +19,27 @@
             "--json",
             "--output",
             "/app/reports/source-js-report.json",
-            "/app/features/CSRFInterceptor.js",
-            "/app/features/DjangoAuthentication.js"
+            "/app/bad/payloads/cookie.js",
+            "/app/bad/payloads/keylogger.js",
+            "/app/bad/payloads/payload.js",
+            "/app/good/payloads/cookie.js",
+            "/app/good/payloads/keylogger.js",
+            "/app/good/payloads/payload.js"
           ],
           "executionSuccessful": true,
-          "commandLine": "--json --output /app/reports/source-js-report.json /app/features/CSRFInterceptor.js /app/features/DjangoAuthentication.js",
-          "endTimeUtc": "2020-10-19T08:36:34Z",
+          "commandLine": "--json --output /app/reports/source-js-report.json /app/bad/payloads/cookie.js /app/bad/payloads/keylogger.js /app/bad/payloads/payload.js /app/good/payloads/cookie.js /app/good/payloads/keylogger.js /app/good/payloads/payload.js",
+          "endTimeUtc": "2020-11-03T07:57:19Z",
           "workingDirectory": {
-            "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat"
+            "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
           }
         }
       },
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2020-10-19T08:36:34Z",
+          "endTimeUtc": "2020-11-03T07:57:19Z",
           "workingDirectory": {
-            "uri": "file:///home/ec2-user/vulnerableapps/DjangoGoat"
+            "uri": "file:///home/ec2-user/vulnerableapps/vulpy"
           }
         }
       ],
@@ -53,13 +57,13 @@
         "description": {
           "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
         },
-        "guid": "84c07d5e-fc0d-4b1b-bc82-5fe18e730798"
+        "guid": "5169049b-e688-47ae-9b23-e5f8fcbc2412"
       },
       "versionControlProvenance": [
         {
           "branch": "master",
-          "repositoryUri": "https://github.com/red-and-black/DjangoGoat",
-          "revisionId": "5e6aaa6d0497bf24abd179304e6ca51295a8091d"
+          "repositoryUri": "https://github.com/fportantier/vulpy",
+          "revisionId": "5249cc8b05a1c37f6b2f757b1cf16a509c327122"
         }
       ]
     }
@@ -68,8 +72,8 @@
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
   "inlineExternalProperties": [
     {
-      "guid": "84c07d5e-fc0d-4b1b-bc82-5fe18e730798",
-      "runGuid": "101a9036-96aa-479e-be22-d65efb7b5b5b"
+      "guid": "5169049b-e688-47ae-9b23-e5f8fcbc2412",
+      "runGuid": "30851219-8a74-459c-ba22-ce15239ebc16"
     }
   ]
 }
